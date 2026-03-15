@@ -11,7 +11,6 @@ class InventoryManager {
     item.id = prodId;
     prodId++;
     products.add(item);
-    print("Product added successfully");
   }
 
   void viewProduct() {

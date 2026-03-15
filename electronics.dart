@@ -8,6 +8,9 @@ class Electronics extends Product {
 
   @override
   String getInfo() {
-    return "ID: $id\nTitle: $name\nAuthor: $brand\nPrice: \$$price";
+    return "ID: $id\n"
+        "Name: $name\n"
+        "Brand: $brand\n"
+        "Price: \$$price";
   }
 }

@@ -33,6 +33,7 @@ void addProductOpt() {
 
   print("Enter product name: ");
   String? inputName = stdin.readLineSync();
+  print("");
   if (inputName == null || inputName.isEmpty) {
     print("Please enter your products name!");
   }
@@ -43,6 +44,7 @@ void addProductOpt() {
 
   print("Enter price: ");
   String inputPrice = stdin.readLineSync()!;
+  print("");
   if (inputPrice.isEmpty) {
     print("Price is required");
 
@@ -51,6 +53,9 @@ void addProductOpt() {
       print("Invalid! price must be an integer or decimal");
     }
   }
+
+  String name = inputName!;
+  double price = double.tryParse(inputPrice)!;
 
   switch (choice) {
     case "1":
@@ -64,7 +69,10 @@ void addProductOpt() {
 
       Book book = Book(0, name, price, author);
       manager.addProduct(book);
-      print("Book: $book");
+      print("-" * 30);
+      print("Book: ");
+      print("");
+      print(book.getInfo());
       break;
     case "2":
       print("Enter brand: ");
@@ -77,31 +85,44 @@ void addProductOpt() {
 
       Electronics electronics = Electronics(0, name, price, brand);
       manager.addProduct(electronics);
-      print("Electronics : $electronics");
+      print("-" * 30);
+      print("Electronics: ");
+      print("");
+      print(electronics.getInfo());
       break;
   }
+  print("");
+  print("Product added successfully");
+  print("-" * 30);
 }
 
 void main() {
   InventoryManager manager = InventoryManager();
 
-  displayMenu();
-  String? selected = stdin.readLineSync();
-  if (selected == null || selected.isEmpty) {
-    print("number is required");
-  }
+  while (true) {
+    displayMenu();
+    String? selected = stdin.readLineSync();
+    if (selected == null || selected.isEmpty) {
+      print("number is required");
+    }
 
-  if (selected == "1") {
-    addProductOpt();
-    print("Product added successfully");
-  } else if (selected == "2") {
-    print("view products added.");
-    manager.viewProduct();
-  } else if (selected == "3") {
-    manager.updateProduct();
-  } else if (selected == "4") {
-    manager.deleteProduct();
-  } else {
-    print("invalid input!");
+    if (selected == "1") {
+      addProductOpt();
+    } else if (selected == "2") {
+      print("view products added.");
+      manager.viewProduct();
+    } else if (selected == "3") {
+      manager.updateProduct();
+    } else if (selected == "4") {
+      manager.deleteProduct();
+    } else {
+      print("invalid input!");
+    }
+
+    print("Enter 'continue' to proceed");
+    String? entered = stdin.readLineSync();
+    if (entered == null || entered.toLowerCase() == 'continue') {
+      break;
+    }
   }
 }

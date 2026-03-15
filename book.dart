@@ -8,6 +8,10 @@ class Book extends Product {
 
   @override
   String getInfo() {
-    return "ID: $id\nTitle: $name\nAuthor: $author\nPrice: \$$price";
+    return "Electronics\n"
+        "ID: $id\n"
+        "Title: $name\n"
+        "Author: $author\n"
+        "Price: \$$price";
   }
 }

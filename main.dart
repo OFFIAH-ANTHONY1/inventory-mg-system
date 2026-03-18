@@ -96,33 +96,36 @@ void addProductOpt() {
   print("-" * 30);
 }
 
+void isSelected() {
+  InventoryManager manager = InventoryManager();
+
+  String? selected = stdin.readLineSync();
+  if (selected == null || selected.isEmpty) {
+    print("number is required");
+  }
+
+  if (selected == "1") {
+    addProductOpt();
+  } else if (selected == "2") {
+    print("view products added.");
+    manager.viewProduct();
+  } else if (selected == "3") {
+    manager.updateProduct();
+  } else if (selected == "4") {
+    manager.deleteProduct();
+  } else {
+    print("invalid input!");
+  }
+}
+
 void main() {
   InventoryManager manager = InventoryManager();
 
   while (true) {
     displayMenu();
-    String? selected = stdin.readLineSync();
-    if (selected == null || selected.isEmpty) {
-      print("number is required");
-    }
+    isSelected();
 
-    if (selected == "1") {
-      addProductOpt();
-    } else if (selected == "2") {
-      print("view products added.");
-      manager.viewProduct();
-    } else if (selected == "3") {
-      manager.updateProduct();
-    } else if (selected == "4") {
-      manager.deleteProduct();
-    } else {
-      print("invalid input!");
-    }
-
-    print("Enter 'continue' to proceed");
-    String? entered = stdin.readLineSync();
-    if (entered == null || entered.toLowerCase() == 'continue') {
-      break;
-    }
+    print("Type 'Enter' to continue");
+    stdin.readLineSync();
   }
 }

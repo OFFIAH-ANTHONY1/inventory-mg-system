@@ -7,21 +7,25 @@ class InventoryManager {
   List<Product> products = [];
   int prodId = 1;
 
-  void addProduct(Product item) {
-    item.id = prodId;
+  void addProduct(Product product) {
+    product.id = prodId;
     prodId++;
-    products.add(item);
+    products.add(product);
   }
 
-  void viewProduct() {
+  List<Product> viewProduct() {
+    print("Available Products: ");
+
     if (products.isEmpty) {
       print("Inventory is empty!");
-      return;
+    } else {
+      for (var product in products) {
+        print(product.getInfo());
+        print('----------------------');
+      }
     }
-    print("Available Products: ");
-    for (var product in products) {
-      print(product.getInfo());
-    }
+
+    return List.from(products);
   }
 
   Product? getProductId(int id) {

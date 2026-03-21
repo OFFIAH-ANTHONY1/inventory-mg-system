@@ -11,7 +11,7 @@ class Book extends Product {
     return "Electronics\n"
         "ID: $id\n"
         "Title: $name\n"
-        "Author: $author\n"
-        "Price: \$$price";
+        "Price: \$$price"
+        "Author: $author\n";
   }
 }

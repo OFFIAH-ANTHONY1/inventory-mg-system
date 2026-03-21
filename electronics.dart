@@ -10,7 +10,7 @@ class Electronics extends Product {
   String getInfo() {
     return "ID: $id\n"
         "Name: $name\n"
-        "Brand: $brand\n"
-        "Price: \$$price";
+        "Price: \$$price"
+        "Brand: $brand\n";
   }
 }

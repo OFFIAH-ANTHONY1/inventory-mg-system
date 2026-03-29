@@ -116,16 +116,28 @@ void isSelected() {
   } else {
     print("invalid input!");
   }
+  if (selected == "exit") {
+    print("Exit successful");
+    exit(0);
+  }
 }
 
 void main() {
   InventoryManager manager = InventoryManager();
+  bool isRunning = true;
 
-  while (true) {
+  while (isRunning) {
     displayMenu();
     isSelected();
 
     print("Type 'Enter' to continue");
-    stdin.readLineSync();
+    String? entered = stdin.readLineSync();
+    if (entered == "enter") {
+      displayMenu();
+      isSelected();
+    } else {
+      print("x" * 20);
+      print("Invalid! Please type in 'enter' to continue");
+    }
   }
 }

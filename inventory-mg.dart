@@ -11,18 +11,20 @@ class InventoryManager {
     product.id = prodId;
     prodId++;
     products.add(product);
+    print("Product added. Total: ${products.length}");
   }
 
   List<Product> viewProduct() {
     print("Available Products: ");
 
-    if (products.isEmpty) {
-      print("Inventory is empty!");
-    } else {
+    if (!products.isEmpty) {
       for (var product in products) {
         print(product.getInfo());
         print('----------------------');
       }
+      print("Current products count: ${products.length}");
+    } else {
+      print("inventory is empty");
     }
 
     return List.from(products);

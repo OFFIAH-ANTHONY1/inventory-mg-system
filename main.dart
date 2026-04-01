@@ -16,14 +16,14 @@ void displayMenu() {
   print('Choose an option (1-4): ');
 }
 
+InventoryManager manager = InventoryManager();
+
 void addProductOpt() {
   print("Add Products");
   print("");
   print("Select Product Category");
   print("1. Book");
   print("2. Electronics");
-
-  InventoryManager manager = InventoryManager();
 
   String? choice = stdin.readLineSync();
 
@@ -97,8 +97,6 @@ void addProductOpt() {
 }
 
 void isSelected() {
-  InventoryManager manager = InventoryManager();
-
   String? selected = stdin.readLineSync();
   if (selected == null || selected.isEmpty) {
     print("number is required");
@@ -123,7 +121,6 @@ void isSelected() {
 }
 
 void main() {
-  InventoryManager manager = InventoryManager();
   bool isRunning = true;
 
   while (isRunning) {

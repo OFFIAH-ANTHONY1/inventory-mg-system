@@ -15,8 +15,7 @@ class InventoryManager {
   }
 
   List<Product> viewProduct() {
-    print("Available Products: ");
-
+    print("Available Products: \n");
     if (!products.isEmpty) {
       for (var product in products) {
         print(product.getInfo());
@@ -40,7 +39,8 @@ class InventoryManager {
 
   void updateProduct() {
     stdout.write("Enter item id: ");
-    String? id = stdin.readLineSync();
+    String idInput = stdin.readLineSync()!;
+    int? id = int.tryParse(idInput);
     for (var product in products) {
       if (product.id == id) {
         stdout.write("enter new name: ");
